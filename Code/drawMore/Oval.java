@@ -1,0 +1,40 @@
+package drawMore;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+public class Oval implements Sprite {
+    public int width;
+    public int height;
+    public Color color;
+
+    /**
+     * Create an oval that has dimensions width and height, filled with
+     * startColor.
+     */
+    public Oval(int width, int height, Color color) {
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+
+    public void draw(Graphics surface,int x, int y) {
+        //draw the object
+        surface.setColor(color);
+        surface.fillOval(x,y,width,height);
+        surface.setColor(Color.BLACK);
+        ((Graphics2D) surface).setStroke(new BasicStroke(3.0f));
+        surface.drawOval(x,y,width,height);
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
+    }
+
+}
